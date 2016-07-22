@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gth.delivery.dao.IndentMapper" >
+  <resultMap id="BaseResultMap" type="com.gth.delivery.model.Indent" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="fromuserid" property="fromuserid" jdbcType="INTEGER" />
+    <result column="touserid" property="touserid" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="courierid" property="courierid" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="DATE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.gth.delivery.model.Indent" extends="BaseResultMap" >
+    <result column="fromphone" property="fromphone" jdbcType="LONGVARCHAR" />
+    <result column="tophone" property="tophone" jdbcType="LONGVARCHAR" />
+    <result column="fromaddress" property="fromaddress" jdbcType="LONGVARCHAR" />
+    <result column="toaddress" property="toaddress" jdbcType="LONGVARCHAR" />
+    <result column="secretcode" property="secretcode" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, fromuserid, touserid, price, courierid, state, time
+  </sql>
+  <sql id="Blob_Column_List" >
+    fromphone, tophone, fromaddress, toaddress, secretcode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from indent
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from indent
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gth.delivery.model.Indent" >
+    insert into indent (id, fromuserid, touserid, 
+      price, courierid, state, 
+      time, fromphone, tophone, 
+      fromaddress, toaddress, secretcode
+      )
+    values (#{id,jdbcType=INTEGER}, #{fromuserid,jdbcType=INTEGER}, #{touserid,jdbcType=INTEGER}, 
+      #{price,jdbcType=DOUBLE}, #{courierid,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{time,jdbcType=DATE}, #{fromphone,jdbcType=LONGVARCHAR}, #{tophone,jdbcType=LONGVARCHAR}, 
+      #{fromaddress,jdbcType=LONGVARCHAR}, #{toaddress,jdbcType=LONGVARCHAR}, #{secretcode,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gth.delivery.model.Indent" >
+    insert into indent
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="fromuserid != null" >
+        fromuserid,
+      </if>
+      <if test="touserid != null" >
+        touserid,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="courierid != null" >
+        courierid,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="fromphone != null" >
+        fromphone,
+      </if>
+      <if test="tophone != null" >
+        tophone,
+      </if>
+      <if test="fromaddress != null" >
+        fromaddress,
+      </if>
+      <if test="toaddress != null" >
+        toaddress,
+      </if>
+      <if test="secretcode != null" >
+        secretcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="fromuserid != null" >
+        #{fromuserid,jdbcType=INTEGER},
+      </if>
+      <if test="touserid != null" >
+        #{touserid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="courierid != null" >
+        #{courierid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=DATE},
+      </if>
+      <if test="fromphone != null" >
+        #{fromphone,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tophone != null" >
+        #{tophone,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="fromaddress != null" >
+        #{fromaddress,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toaddress != null" >
+        #{toaddress,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="secretcode != null" >
+        #{secretcode,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gth.delivery.model.Indent" >
+    update indent
+    <set >
+      <if test="fromuserid != null" >
+        fromuserid = #{fromuserid,jdbcType=INTEGER},
+      </if>
+      <if test="touserid != null" >
+        touserid = #{touserid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="courierid != null" >
+        courierid = #{courierid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=DATE},
+      </if>
+      <if test="fromphone != null" >
+        fromphone = #{fromphone,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tophone != null" >
+        tophone = #{tophone,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="fromaddress != null" >
+        fromaddress = #{fromaddress,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toaddress != null" >
+        toaddress = #{toaddress,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="secretcode != null" >
+        secretcode = #{secretcode,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gth.delivery.model.Indent" >
+    update indent
+    set fromuserid = #{fromuserid,jdbcType=INTEGER},
+      touserid = #{touserid,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      courierid = #{courierid,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      time = #{time,jdbcType=DATE},
+      fromphone = #{fromphone,jdbcType=LONGVARCHAR},
+      tophone = #{tophone,jdbcType=LONGVARCHAR},
+      fromaddress = #{fromaddress,jdbcType=LONGVARCHAR},
+      toaddress = #{toaddress,jdbcType=LONGVARCHAR},
+      secretcode = #{secretcode,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gth.delivery.model.Indent" >
+    update indent
+    set fromuserid = #{fromuserid,jdbcType=INTEGER},
+      touserid = #{touserid,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      courierid = #{courierid,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      time = #{time,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
