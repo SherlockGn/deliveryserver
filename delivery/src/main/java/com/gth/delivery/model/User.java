@@ -3,83 +3,103 @@ package com.gth.delivery.model;
 import java.util.Date;
 
 public class User {
-    private Integer id;
+	private Integer id;
 
-    private Boolean gender;
+	private Boolean gender;
 
-    private Date time;
+	private Date time;
 
-    private String name;
+	private String name;
 
-    private String username;
+	private String username;
 
-    private String password;
+	private String password;
 
-    private String phone;
+	private String phone;
 
-    private String address;
+	private String address;
 
-    public Integer getId() {
-        return id;
-    }
+	public User() {
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public User(Integer id, Boolean gender, Date time, String name, String username, String password, String phone,
+			String address) {
+		this.id = id;
+		this.gender = gender;
+		this.time = time;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.address = address;
+	}
 
-    public Boolean getGender() {
-        return gender;
-    }
+	public User(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
-    public void setGender(Boolean gender) {
-        this.gender = gender;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public Boolean getGender() {
+		return gender;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setGender(Boolean gender) {
+		this.gender = gender;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public Date getTime() {
+		return time;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setUsername(String username) {
+		this.username = username == null ? null : username.trim();
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public void setPassword(String password) {
+		this.password = password == null ? null : password.trim();
+	}
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone == null ? null : phone.trim();
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address == null ? null : address.trim();
+	}
 }

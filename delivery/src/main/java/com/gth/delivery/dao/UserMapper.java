@@ -1,5 +1,7 @@
 package com.gth.delivery.dao;
 
+import java.util.List;
+
 import com.gth.delivery.model.User;
 
 public interface UserMapper {
@@ -16,4 +18,6 @@ public interface UserMapper {
     int updateByPrimaryKeyWithBLOBs(User record);
 
     int updateByPrimaryKey(User record);
+    
+    List<User> selectByUsername(String username);
 }

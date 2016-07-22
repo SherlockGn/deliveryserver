@@ -1,0 +1,6 @@
+insert into user (username, password, name, gender, phone, address, time)  values ('sherlock', '123', 'Sherlock Gong', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
+insert into user (username, password, name, gender, phone, address, time)  values ('abc', '1', 'name abc', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
+insert into user (username, password, name, gender, phone, address, time)  values ('test', '123', 'name test', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
+insert into user (username, password, name, gender, phone, address, time)  values ('qyx', '123', 'Qing Yuxiang', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
+insert into user (username, password, name, gender, phone, address, time)  values ('gth', '123', 'Gong Tianhe', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
+insert into user (username, password, name, gender, phone, address, time)  values ('ch', '123', 'Chen Huan', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
