@@ -42,7 +42,7 @@ public class UserController {
 		if (StringUtils.isNull(id) && StringUtils.isNull(username)) {
 			return new User(-1, "lack param id & username");
 		}
-		if (!StringUtils.isNull(null) && !StringUtils.isNull(username)) {
+		if (!StringUtils.isNull(id) && !StringUtils.isNull(username)) {
 			return new User(-1, "reduplicative param id & username");
 		}
 		if (!StringUtils.isNull(id)) {
