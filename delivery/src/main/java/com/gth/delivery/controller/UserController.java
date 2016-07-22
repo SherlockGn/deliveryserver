@@ -30,7 +30,7 @@ public class UserController {
 		User user = deliveryService.getUserByUsername("abcd");
 		System.out.println(JSONObject.toJSONString(user));
 
-		return "index";
+		return "mainpage";
 	}
 
 	@RequestMapping(value = "/getUser", method = RequestMethod.GET)
