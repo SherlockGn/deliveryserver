@@ -32,4 +32,9 @@ public class DeliveryServiceImpl implements DeliveryService {
 	public void insertUser(User user) {
 		userMapper.insertSelective(user);
 	}
+
+	@Override
+	public void updateUser(User user) {
+		userMapper.updateByPrimaryKeySelective(user);
+	}
 }

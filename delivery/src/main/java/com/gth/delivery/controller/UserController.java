@@ -39,13 +39,13 @@ public class UserController {
 			@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "username", required = false) String username) {
 
-		if (id == null && username == null) {
+		if (StringUtils.isNull(id) && StringUtils.isNull(username)) {
 			return new User(-1, "lack param id & username");
 		}
-		if (id != null && username != null) {
+		if (!StringUtils.isNull(null) && !StringUtils.isNull(username)) {
 			return new User(-1, "reduplicative param id & username");
 		}
-		if (id != null) {
+		if (!StringUtils.isNull(id)) {
 			if (StringUtils.isNumber(id) == false)
 				return new User(-1, "id seems not a number: " + id);
 			User user = deliveryService.getUserById(Integer.parseInt(id));
@@ -136,7 +136,7 @@ public class UserController {
 		}
 		user = new User(null, genderConverse == 1 ? true : false, new Date(), name.trim(), username, password.trim(),
 				phoneSettle, addressSettle);
-		
+
 		int id = -1;
 		try {
 			deliveryService.insertUser(user);
@@ -146,5 +146,124 @@ public class UserController {
 			return new ReturnPackage(-1, ex.getMessage());
 		}
 		return new ReturnPackage(id, "register success");
+	}
+
+	@RequestMapping(value = "/setUser", method = RequestMethod.GET)
+	@ResponseBody
+	public ReturnPackage setUser(HttpServletRequest request, Model model,
+			@RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "username", required = false) String username,
+			@RequestParam(value = "password", required = false) String password,
+			@RequestParam(value = "gender", required = false) String gender,
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "phone", required = false) String phone,
+			@RequestParam(value = "address", required = false) String address) {
+		if (StringUtils.isNull(id) && StringUtils.isNull(username)) {
+			return new ReturnPackage(-1, "lack param id & username");
+		}
+		if (!StringUtils.isNull(id) && !StringUtils.isNull(username)) {
+			return new ReturnPackage(-1, "reduplicative param id & username");
+		}
+		if (StringUtils.isNull(password) && StringUtils.isNull(gender) && StringUtils.isNull(name)
+				&& StringUtils.isNull(phone) && StringUtils.isNull(address)) {
+			return new ReturnPackage(-1, "args are all null");
+		}
+		User user;
+		if (!StringUtils.isNull(id)) {
+			if (StringUtils.isNumber(id) == false)
+				return new ReturnPackage(-1, "id seems not a number: " + id);
+			user = deliveryService.getUserById(Integer.parseInt(id));
+			if (user == null)
+				return new ReturnPackage(-1, "the user doesn't exist");
+		} else {
+			user = deliveryService.getUserByUsername(username);
+			if (user == null)
+				return new ReturnPackage(-1, "the user doesn't exist");
+		}
+		if (!StringUtils.isNull(password))
+			password = password.trim();
+		Boolean genderBool = null;
+		if (!StringUtils.isNull(gender)) {
+			int genderConverse = StringUtils.legalGender(gender);
+			if (genderConverse == -1) {
+				return new ReturnPackage(-1, "gender input is not legal");
+			}
+			genderBool = genderConverse == 1 ? true : false;
+		}
+		if (!StringUtils.isNull(name))
+			name = name.trim();
+		if (!StringUtils.isNull(phone)) {
+			phone = StringUtils.phoneSettle(phone);
+			if (phone == null)
+				return new ReturnPackage(-1, "phone input is not legal");
+		}
+		if (!StringUtils.isNull(address)) {
+			address = StringUtils.addressSettle(address);
+			if (address == null)
+				return new ReturnPackage(-1, "address input is not legal");
+		}
+		user = new User(user.getId(), genderBool, null, name, null, password, phone, address);
+
+		try {
+			deliveryService.updateUser(user);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return new ReturnPackage(-1, ex.getMessage());
+		}
+		return new ReturnPackage(user.getId(), "reset success");
+	}
+
+	@RequestMapping(value = "/appendUser", method = RequestMethod.GET)
+	@ResponseBody
+	public ReturnPackage appendUser(HttpServletRequest request, Model model,
+			@RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "username", required = false) String username,
+			@RequestParam(value = "phone", required = false) String phone,
+			@RequestParam(value = "address", required = false) String address) {
+		if (StringUtils.isNull(id) && StringUtils.isNull(username)) {
+			return new ReturnPackage(-1, "lack param id & username");
+		}
+		if (!StringUtils.isNull(id) && !StringUtils.isNull(username)) {
+			return new ReturnPackage(-1, "reduplicative param id & username");
+		}
+		if (StringUtils.isNull(phone) && StringUtils.isNull(address)) {
+			return new ReturnPackage(-1, "phone and address are all null");
+		}
+		User user;
+		if (!StringUtils.isNull(id)) {
+			if (StringUtils.isNumber(id) == false)
+				return new ReturnPackage(-1, "id seems not a number: " + id);
+			user = deliveryService.getUserById(Integer.parseInt(id));
+			if (user == null)
+				return new ReturnPackage(-1, "the user doesn't exist");
+		} else {
+			user = deliveryService.getUserByUsername(username);
+			if (user == null)
+				return new ReturnPackage(-1, "the user doesn't exist");
+		}
+
+		if (!StringUtils.isNull(phone)) {
+			phone = phone.trim();
+			if (!StringUtils.isNumber(phone))
+				return new ReturnPackage(-1, "the phone seems not a number");
+			user.setPhone(user.getPhone() + ";" + phone);
+		} else
+			user.setPhone(null);
+
+		if (!StringUtils.isNull(address)) {
+			address = address.trim();
+			if (address.contains(";"))
+				return new ReturnPackage(-1, "the address contains character \";\"");
+			user.setAddress(user.getAddress() + ";" + address);
+		} else
+			user.setAddress(null);
+		user = new User(user.getId(), null, null, null, null, null, user.getPhone(), user.getAddress());
+		try {
+			deliveryService.updateUser(user);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return new ReturnPackage(-1, ex.getMessage());
+		}
+		return new ReturnPackage(user.getId(), "append success");
 	}
 }

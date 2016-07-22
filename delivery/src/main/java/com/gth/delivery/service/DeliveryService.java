@@ -6,6 +6,8 @@ public interface DeliveryService {
 	public User getUserById(Integer id);
 
 	public User getUserByUsername(String username);
-	
+
 	public void insertUser(User user);
+
+	public void updateUser(User user);
 }
