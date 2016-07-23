@@ -34,10 +34,12 @@
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.gth.delivery.model.User">
-		insert into user (id, gender, time, name,
+		insert into user (id, gender,
+		time, name,
 		username, password, phone,
 		address)
-		values (#{id,jdbcType=INTEGER}, #{gender,jdbcType=BIT},
+		values
+		(#{id,jdbcType=INTEGER}, #{gender,jdbcType=BIT},
 		#{time,jdbcType=DATE}, #{name,jdbcType=LONGVARCHAR},
 		#{username,jdbcType=LONGVARCHAR}, #{password,jdbcType=LONGVARCHAR},
 		#{phone,jdbcType=LONGVARCHAR},
@@ -126,26 +128,43 @@
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gth.delivery.model.User">
-		update user
+		update
+		user
 		set gender = #{gender,jdbcType=BIT},
 		time = #{time,jdbcType=DATE},
 		name = #{name,jdbcType=LONGVARCHAR},
-		username = #{username,jdbcType=LONGVARCHAR},
-		password = #{password,jdbcType=LONGVARCHAR},
-		phone = #{phone,jdbcType=LONGVARCHAR},
-		address = #{address,jdbcType=LONGVARCHAR}
+		username =
+		#{username,jdbcType=LONGVARCHAR},
+		password =
+		#{password,jdbcType=LONGVARCHAR},
+		phone =
+		#{phone,jdbcType=LONGVARCHAR},
+		address =
+		#{address,jdbcType=LONGVARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.gth.delivery.model.User">
 		update user
-		set gender = #{gender,jdbcType=BIT},
+		set
+		gender = #{gender,jdbcType=BIT},
 		time = #{time,jdbcType=DATE}
-		where id = #{id,jdbcType=INTEGER}
+		where id =
+		#{id,jdbcType=INTEGER}
 	</update>
 
 	<select id="selectByUsername" resultType="java.util.List"
 		resultMap="ResultMapWithBLOBs">
 		select * from user
 		where username=#{username}
+	</select>
+
+	<select id="selectByUserIds" resultType="java.util.List"
+		resultMap="ResultMapWithBLOBs" parameterType="java.util.List">
+		select * from user
+		where id in
+		<foreach item="ids" index="index" collection="list" open="("
+			separator="," close=")">
+			#{ids}
+		</foreach>
 	</select>
 </mapper>

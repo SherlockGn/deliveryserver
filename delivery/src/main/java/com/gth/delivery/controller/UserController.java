@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSONObject;
 import com.gth.delivery.model.User;
 import com.gth.delivery.service.DeliveryService;
 import com.gth.delivery.util.ReturnPackage;
@@ -27,9 +26,11 @@ public class UserController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String rootTest(HttpServletRequest request, Model model) {
 
-		User user = deliveryService.getUserByUsername("abcd");
-		System.out.println(JSONObject.toJSONString(user));
-
+//		List<Friend> friends = deliveryService.findFriendByOneId(1);
+//		System.out.println(JSONObject.toJSONString(friends));
+//
+//		System.out.println(
+//				JSONObject.toJSONString(deliveryService.findUsersByIds(Arrays.asList(new Integer[] { 1, 2, 3, 4 }))));
 		return "mainpage";
 	}
 
