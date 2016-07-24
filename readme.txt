@@ -1,4 +1,4 @@
-This is a readme file.
+﻿This is a readme file.
 
 Please use the command to clone git repository:
 git clone git@github.com:SherlockGn/deliveryserver.git
@@ -111,7 +111,7 @@ address是用户的住址，字符串，多个地址用;（英文的分号）相
 }
 
 4.为用户的phone或者address追加参数，例如原先用户只有一个手机号，追加一个之后就变成两个
-getUser?id=xxx&username=xxx&[phone=xxx]&[address=xxx]
+getAppend?id=xxx&username=xxx&[phone=xxx]&[address=xxx]
 其中：
 id是用户的id，字符串，不可以有非数字
 username是注册的用户名，字符串
