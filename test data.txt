@@ -4,3 +4,5 @@ insert into user (username, password, name, gender, phone, address, time)  value
 insert into user (username, password, name, gender, phone, address, time)  values ('qyx', '123', 'Qing Yuxiang', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
 insert into user (username, password, name, gender, phone, address, time)  values ('gth', '123', 'Gong Tianhe', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
 insert into user (username, password, name, gender, phone, address, time)  values ('ch', '123', 'Chen Huan', 1, '15851808944', 'nupt, nanjing, jiangsu, china', now());
+
+modified
