@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.gth.delivery.dao.CourierMapper;
 import com.gth.delivery.dao.FriendMapper;
+import com.gth.delivery.dao.IndentMapper;
 import com.gth.delivery.dao.UserMapper;
 import com.gth.delivery.model.Courier;
 import com.gth.delivery.model.Friend;
+import com.gth.delivery.model.Indent;
 import com.gth.delivery.model.User;
 import com.gth.delivery.service.DeliveryService;
 
@@ -25,6 +27,9 @@ public class DeliveryServiceImpl implements DeliveryService {
 
 	@Autowired
 	private CourierMapper courierMapper;
+
+	@Autowired
+	private IndentMapper indentMapper;
 
 	@Override
 	public User findUserById(Integer id) {
@@ -90,6 +95,26 @@ public class DeliveryServiceImpl implements DeliveryService {
 	@Override
 	public void updateCourier(Courier courier) {
 		courierMapper.updateByPrimaryKeySelective(courier);
+	}
+
+	@Override
+	public void createIndent(Indent indent) {
+		indentMapper.insertSelective(indent);
+	}
+
+	@Override
+	public List<Indent> findIndentByFromUserId(Integer id) {
+		return indentMapper.selectByFromUserId(id);
+	}
+
+	@Override
+	public List<Indent> findIndentByToUserId(Integer id) {
+		return indentMapper.selectByToUserId(id);
+	}
+
+	@Override
+	public Indent findIndentById(Integer id) {
+		return indentMapper.selectByPrimaryKey(id);
 	}
 
 }

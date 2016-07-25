@@ -47,7 +47,7 @@
       #{fromaddress,jdbcType=LONGVARCHAR}, #{toaddress,jdbcType=LONGVARCHAR}, #{secretcode,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.gth.delivery.model.Indent" >
+  <insert id="insertSelective" parameterType="com.gth.delivery.model.Indent" useGeneratedKeys="true" keyProperty="id">
     insert into indent
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -190,4 +190,14 @@
       time = #{time,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByFromUserId" resultType="java.util.List" resultMap="ResultMapWithBLOBs">
+  	select * from indent
+  	where fromuserid=#{id}
+  </select>
+  <select id="selectByToUserId" resultType="java.util.List" resultMap="ResultMapWithBLOBs">
+  	select * from indent
+  	where touserid=#{id}
+  </select>
+  
 </mapper>

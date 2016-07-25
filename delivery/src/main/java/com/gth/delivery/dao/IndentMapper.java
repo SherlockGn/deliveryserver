@@ -1,5 +1,7 @@
 package com.gth.delivery.dao;
 
+import java.util.List;
+
 import com.gth.delivery.model.Indent;
 
 public interface IndentMapper {
@@ -16,4 +18,8 @@ public interface IndentMapper {
     int updateByPrimaryKeyWithBLOBs(Indent record);
 
     int updateByPrimaryKey(Indent record);
+    
+    List<Indent> selectByFromUserId(Integer id);
+    
+    List<Indent> selectByToUserId(Integer id);
 }

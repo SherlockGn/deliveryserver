@@ -76,7 +76,7 @@ public class CourierController {
 		int id = -1;
 		try {
 			deliveryService.insertCourier(courier);
-			id = deliveryService.findCourierByUsername(username).getId();
+			id = courier.getId();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new ReturnPackage(-1, ex.getMessage());
@@ -156,5 +156,22 @@ public class CourierController {
 			return new ReturnPackage(-1, ex.getMessage());
 		}
 		return new ReturnPackage(courier.getId(), "reset success");
+	}
+
+	@RequestMapping(value = "/loginCourier", method = RequestMethod.GET)
+	@ResponseBody
+	public ReturnPackage loginUser(HttpServletRequest request, Model model,
+			@RequestParam(value = "username", required = false) String username,
+			@RequestParam(value = "password", required = false) String password) {
+		if (username == null)
+			return new ReturnPackage(-1, "username is null");
+		if (password == null)
+			return new ReturnPackage(-1, "password is null");
+		Courier courier = deliveryService.findCourierByUsername(username);
+		if (courier == null)
+			return new ReturnPackage(-1, "the user doesn't exist");
+		if (!courier.getPassword().equals(password))
+			return new ReturnPackage(-1, "wrong password");
+		return new ReturnPackage(courier.getId(), "login success");
 	}
 }

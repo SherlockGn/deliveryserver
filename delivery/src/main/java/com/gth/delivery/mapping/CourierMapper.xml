@@ -40,7 +40,7 @@
 		#{username,jdbcType=LONGVARCHAR}, #{password,jdbcType=LONGVARCHAR}, #{phone,jdbcType=LONGVARCHAR}
 		)
 	</insert>
-	<insert id="insertSelective" parameterType="com.gth.delivery.model.Courier">
+	<insert id="insertSelective" parameterType="com.gth.delivery.model.Courier" useGeneratedKeys="true" keyProperty="id">
 		insert into courier
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">

@@ -45,7 +45,7 @@
 		#{phone,jdbcType=LONGVARCHAR},
 		#{address,jdbcType=LONGVARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="com.gth.delivery.model.User">
+	<insert id="insertSelective" parameterType="com.gth.delivery.model.User" useGeneratedKeys="true" keyProperty="id">
 		insert into user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">

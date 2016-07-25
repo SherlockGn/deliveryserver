@@ -3,123 +3,147 @@ package com.gth.delivery.model;
 import java.util.Date;
 
 public class Indent {
-    private Integer id;
+	private Integer id;
 
-    private Integer fromuserid;
+	private Integer fromuserid;
 
-    private Integer touserid;
+	private Integer touserid;
 
-    private Double price;
+	private Double price;
 
-    private Integer courierid;
+	private Integer courierid;
 
-    private Integer state;
+	private Integer state;
 
-    private Date time;
+	private Date time;
 
-    private String fromphone;
+	private String fromphone;
 
-    private String tophone;
+	private String tophone;
 
-    private String fromaddress;
+	private String fromaddress;
 
-    private String toaddress;
+	private String toaddress;
 
-    private String secretcode;
+	private String secretcode;
 
-    public Integer getId() {
-        return id;
-    }
+	public Indent(Integer id, Integer fromuserid, Integer touserid, Double price, Integer courierid, Integer state,
+			Date time, String fromphone, String tophone, String fromaddress, String toaddress, String secretcode) {
+		this.id = id;
+		this.fromuserid = fromuserid;
+		this.touserid = touserid;
+		this.price = price;
+		this.courierid = courierid;
+		this.state = state;
+		this.time = time;
+		this.fromphone = fromphone;
+		this.tophone = tophone;
+		this.fromaddress = fromaddress;
+		this.toaddress = toaddress;
+		this.secretcode = secretcode;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Indent() {
+	}
 
-    public Integer getFromuserid() {
-        return fromuserid;
-    }
+	public Indent(Integer id, String secretcode) {
+		this.id = id;
+		this.secretcode = secretcode;
+	}
 
-    public void setFromuserid(Integer fromuserid) {
-        this.fromuserid = fromuserid;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Integer getTouserid() {
-        return touserid;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setTouserid(Integer touserid) {
-        this.touserid = touserid;
-    }
+	public Integer getFromuserid() {
+		return fromuserid;
+	}
 
-    public Double getPrice() {
-        return price;
-    }
+	public void setFromuserid(Integer fromuserid) {
+		this.fromuserid = fromuserid;
+	}
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+	public Integer getTouserid() {
+		return touserid;
+	}
 
-    public Integer getCourierid() {
-        return courierid;
-    }
+	public void setTouserid(Integer touserid) {
+		this.touserid = touserid;
+	}
 
-    public void setCourierid(Integer courierid) {
-        this.courierid = courierid;
-    }
+	public Double getPrice() {
+		return price;
+	}
 
-    public Integer getState() {
-        return state;
-    }
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
+	public Integer getCourierid() {
+		return courierid;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public void setCourierid(Integer courierid) {
+		this.courierid = courierid;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public Integer getState() {
+		return state;
+	}
 
-    public String getFromphone() {
-        return fromphone;
-    }
+	public void setState(Integer state) {
+		this.state = state;
+	}
 
-    public void setFromphone(String fromphone) {
-        this.fromphone = fromphone == null ? null : fromphone.trim();
-    }
+	public Date getTime() {
+		return time;
+	}
 
-    public String getTophone() {
-        return tophone;
-    }
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
-    public void setTophone(String tophone) {
-        this.tophone = tophone == null ? null : tophone.trim();
-    }
+	public String getFromphone() {
+		return fromphone;
+	}
 
-    public String getFromaddress() {
-        return fromaddress;
-    }
+	public void setFromphone(String fromphone) {
+		this.fromphone = fromphone == null ? null : fromphone.trim();
+	}
 
-    public void setFromaddress(String fromaddress) {
-        this.fromaddress = fromaddress == null ? null : fromaddress.trim();
-    }
+	public String getTophone() {
+		return tophone;
+	}
 
-    public String getToaddress() {
-        return toaddress;
-    }
+	public void setTophone(String tophone) {
+		this.tophone = tophone == null ? null : tophone.trim();
+	}
 
-    public void setToaddress(String toaddress) {
-        this.toaddress = toaddress == null ? null : toaddress.trim();
-    }
+	public String getFromaddress() {
+		return fromaddress;
+	}
 
-    public String getSecretcode() {
-        return secretcode;
-    }
+	public void setFromaddress(String fromaddress) {
+		this.fromaddress = fromaddress == null ? null : fromaddress.trim();
+	}
 
-    public void setSecretcode(String secretcode) {
-        this.secretcode = secretcode == null ? null : secretcode.trim();
-    }
+	public String getToaddress() {
+		return toaddress;
+	}
+
+	public void setToaddress(String toaddress) {
+		this.toaddress = toaddress == null ? null : toaddress.trim();
+	}
+
+	public String getSecretcode() {
+		return secretcode;
+	}
+
+	public void setSecretcode(String secretcode) {
+		this.secretcode = secretcode == null ? null : secretcode.trim();
+	}
 }

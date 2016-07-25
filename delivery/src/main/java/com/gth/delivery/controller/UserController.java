@@ -25,14 +25,6 @@ public class UserController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String rootTest(HttpServletRequest request, Model model) {
-
-//		List<Friend> friends = deliveryService.findFriendByOneId(1);
-//		System.out.println(JSONObject.toJSONString(friends));
-//
-//		System.out.println(
-//				JSONObject.toJSONString(deliveryService.findUsersByIds(Arrays.asList(new Integer[] { 1, 2, 3, 4 }))));
-		
-		System.out.println(deliveryService.findCourierByUsername("c3"));
 		return "mainpage";
 	}
 
@@ -143,7 +135,7 @@ public class UserController {
 		int id = -1;
 		try {
 			deliveryService.insertUser(user);
-			id = deliveryService.findUserByUsername(username).getId();
+			id = user.getId();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new ReturnPackage(-1, ex.getMessage());
@@ -268,5 +260,22 @@ public class UserController {
 			return new ReturnPackage(-1, ex.getMessage());
 		}
 		return new ReturnPackage(user.getId(), "append success");
+	}
+
+	@RequestMapping(value = "/loginUser", method = RequestMethod.GET)
+	@ResponseBody
+	public ReturnPackage loginUser(HttpServletRequest request, Model model,
+			@RequestParam(value = "username", required = false) String username,
+			@RequestParam(value = "password", required = false) String password) {
+		if (username == null)
+			return new ReturnPackage(-1, "username is null");
+		if (password == null)
+			return new ReturnPackage(-1, "password is null");
+		User user = deliveryService.findUserByUsername(username);
+		if (user == null)
+			return new ReturnPackage(-1, "the user doesn't exist");
+		if (!user.getPassword().equals(password))
+			return new ReturnPackage(-1, "wrong password");
+		return new ReturnPackage(user.getId(), "login success");
 	}
 }
