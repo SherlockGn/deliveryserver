@@ -39,4 +39,6 @@ public interface DeliveryService {
 	public List<Indent> findIndentByToUserId(Integer id);
 
 	public Indent findIndentById(Integer id);
+	
+	public void updateIndent(Indent indent);
 }

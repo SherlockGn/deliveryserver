@@ -117,4 +117,9 @@ public class DeliveryServiceImpl implements DeliveryService {
 		return indentMapper.selectByPrimaryKey(id);
 	}
 
+	@Override
+	public void updateIndent(Indent indent) {
+		indentMapper.updateByPrimaryKeySelective(indent);
+	}
+
 }
