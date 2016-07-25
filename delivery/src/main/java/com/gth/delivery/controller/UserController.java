@@ -31,6 +31,8 @@ public class UserController {
 //
 //		System.out.println(
 //				JSONObject.toJSONString(deliveryService.findUsersByIds(Arrays.asList(new Integer[] { 1, 2, 3, 4 }))));
+		
+		System.out.println(deliveryService.findCourierByUsername("c3"));
 		return "mainpage";
 	}
 
@@ -49,13 +51,13 @@ public class UserController {
 		if (!StringUtils.isNull(id)) {
 			if (StringUtils.isNumber(id) == false)
 				return new User(-1, "id seems not a number: " + id);
-			User user = deliveryService.getUserById(Integer.parseInt(id));
+			User user = deliveryService.findUserById(Integer.parseInt(id));
 			if (user == null)
 				return new User(-1, "the user doesn't exist");
 			else
 				return user;
 		}
-		User user = deliveryService.getUserByUsername(username);
+		User user = deliveryService.findUserByUsername(username);
 		if (user == null)
 			return new User(-1, "the user doesn't exist");
 		else
@@ -119,7 +121,7 @@ public class UserController {
 		if (noNull == false) {
 			return new ReturnPackage(-1, sb.toString() + " is null");
 		}
-		User user = deliveryService.getUserByUsername(username);
+		User user = deliveryService.findUserByUsername(username);
 		if (user != null) {
 			return new ReturnPackage(-1, "this username has exsisted");
 		}
@@ -141,7 +143,7 @@ public class UserController {
 		int id = -1;
 		try {
 			deliveryService.insertUser(user);
-			id = deliveryService.getUserByUsername(username).getId();
+			id = deliveryService.findUserByUsername(username).getId();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new ReturnPackage(-1, ex.getMessage());
@@ -173,11 +175,11 @@ public class UserController {
 		if (!StringUtils.isNull(id)) {
 			if (StringUtils.isNumber(id) == false)
 				return new ReturnPackage(-1, "id seems not a number: " + id);
-			user = deliveryService.getUserById(Integer.parseInt(id));
+			user = deliveryService.findUserById(Integer.parseInt(id));
 			if (user == null)
 				return new ReturnPackage(-1, "the user doesn't exist");
 		} else {
-			user = deliveryService.getUserByUsername(username);
+			user = deliveryService.findUserByUsername(username);
 			if (user == null)
 				return new ReturnPackage(-1, "the user doesn't exist");
 		}
@@ -234,11 +236,11 @@ public class UserController {
 		if (!StringUtils.isNull(id)) {
 			if (StringUtils.isNumber(id) == false)
 				return new ReturnPackage(-1, "id seems not a number: " + id);
-			user = deliveryService.getUserById(Integer.parseInt(id));
+			user = deliveryService.findUserById(Integer.parseInt(id));
 			if (user == null)
 				return new ReturnPackage(-1, "the user doesn't exist");
 		} else {
-			user = deliveryService.getUserByUsername(username);
+			user = deliveryService.findUserByUsername(username);
 			if (user == null)
 				return new ReturnPackage(-1, "the user doesn't exist");
 		}

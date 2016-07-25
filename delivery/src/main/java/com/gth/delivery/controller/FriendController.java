@@ -42,11 +42,11 @@ public class FriendController {
 		if (!StringUtils.isNull(id1)) {
 			if (!StringUtils.isNumber(id1))
 				return new ReturnPackage(-1, "id1 seems not a number");
-			user1 = deliveryService.getUserById(Integer.parseInt(id1));
+			user1 = deliveryService.findUserById(Integer.parseInt(id1));
 			if (user1 == null)
 				return new ReturnPackage(-1, "the user1 doesn't exist");
 		} else {
-			user1 = deliveryService.getUserByUsername(username1);
+			user1 = deliveryService.findUserByUsername(username1);
 			if (user1 == null)
 				return new ReturnPackage(-1, "the user1 doesn't exist");
 		}
@@ -61,11 +61,11 @@ public class FriendController {
 		if (!StringUtils.isNull(id2)) {
 			if (!StringUtils.isNumber(id2))
 				return new ReturnPackage(-1, "id2 seems not a number");
-			user2 = deliveryService.getUserById(Integer.parseInt(id2));
+			user2 = deliveryService.findUserById(Integer.parseInt(id2));
 			if (user2 == null)
 				return new ReturnPackage(-1, "the user2 doesn't exist");
 		} else {
-			user2 = deliveryService.getUserByUsername(username2);
+			user2 = deliveryService.findUserByUsername(username2);
 			if (user2 == null)
 				return new ReturnPackage(-1, "the user2 doesn't exist");
 		}
@@ -111,13 +111,13 @@ public class FriendController {
 				returnList.add(new User(-1, "id seems not a number"));
 				return returnList;
 			}
-			user = deliveryService.getUserById(Integer.parseInt(id));
+			user = deliveryService.findUserById(Integer.parseInt(id));
 			if (user == null) {
 				returnList.add(new User(-1, "the user doesn't exist"));
 				return returnList;
 			}
 		} else {
-			user = deliveryService.getUserByUsername(username);
+			user = deliveryService.findUserByUsername(username);
 			if (user == null) {
 				returnList.add(new User(-1, "the user doesn't exist"));
 				return returnList;

@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gth.delivery.dao.CourierMapper;
 import com.gth.delivery.dao.FriendMapper;
 import com.gth.delivery.dao.UserMapper;
+import com.gth.delivery.model.Courier;
 import com.gth.delivery.model.Friend;
 import com.gth.delivery.model.User;
 import com.gth.delivery.service.DeliveryService;
@@ -21,13 +23,16 @@ public class DeliveryServiceImpl implements DeliveryService {
 	@Autowired
 	private FriendMapper friendMapper;
 
+	@Autowired
+	private CourierMapper courierMapper;
+
 	@Override
-	public User getUserById(Integer id) {
+	public User findUserById(Integer id) {
 		return userMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public User getUserByUsername(String username) {
+	public User findUserByUsername(String username) {
 		List<User> lstUser = userMapper.selectByUsername(username);
 		if (lstUser == null || lstUser.size() != 1)
 			return null;
@@ -43,7 +48,7 @@ public class DeliveryServiceImpl implements DeliveryService {
 	public void updateUser(User user) {
 		userMapper.updateByPrimaryKeySelective(user);
 	}
-	
+
 	@Override
 	public List<User> findUsersByIds(List<Integer> ids) {
 		return userMapper.selectByUserIds(ids);
@@ -63,4 +68,28 @@ public class DeliveryServiceImpl implements DeliveryService {
 	public List<Friend> findFriendByOneId(Integer id) {
 		return friendMapper.selectFriendByOneId(id);
 	}
+
+	@Override
+	public Courier findCourierById(Integer id) {
+		return courierMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public Courier findCourierByUsername(String username) {
+		List<Courier> result = courierMapper.selectByUserName(username);
+		if (result == null || result.size() != 1)
+			return null;
+		return result.get(0);
+	}
+
+	@Override
+	public void insertCourier(Courier courier) {
+		courierMapper.insertSelective(courier);
+	}
+
+	@Override
+	public void updateCourier(Courier courier) {
+		courierMapper.updateByPrimaryKeySelective(courier);
+	}
+
 }

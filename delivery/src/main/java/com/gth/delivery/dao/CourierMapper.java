@@ -1,5 +1,7 @@
 package com.gth.delivery.dao;
 
+import java.util.List;
+
 import com.gth.delivery.model.Courier;
 
 public interface CourierMapper {
@@ -16,4 +18,6 @@ public interface CourierMapper {
     int updateByPrimaryKeyWithBLOBs(Courier record);
 
     int updateByPrimaryKey(Courier record);
+    
+    List<Courier> selectByUserName(String username);
 }
