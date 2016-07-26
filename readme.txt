@@ -39,7 +39,7 @@ registerUser?username=qyx&password=123456&gender=1&name=Qing%20Yuxiang&phone=158
 }
 
 2.修改用户
-setUser?id=xxx&username=xxx&password=xxx&[gender=xxx]&[name=xxx]&[phone=xxx]&[address=xxx]
+setUser?id=xxx&username=xxx&[password=xxx]&[gender=xxx]&[name=xxx]&[phone=xxx]&[address=xxx]
 其中：
 id是用户的id，字符串，不可以有非数字
 username是注册的用户名，字符串
