@@ -3,6 +3,9 @@
 Please use the command to clone git repository:
 git clone git@github.com:SherlockGn/deliveryserver.git
 
+you can also access interfaces on:
+https://sherlockgn.github.io/deliveryserver/
+
 The interfaces are defined as following:
 
 用户相关接口
