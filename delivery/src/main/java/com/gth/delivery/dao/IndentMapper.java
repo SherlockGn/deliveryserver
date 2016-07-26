@@ -22,4 +22,6 @@ public interface IndentMapper {
     List<Indent> selectByFromUserId(Integer id);
     
     List<Indent> selectByToUserId(Integer id);
+    
+    List<Indent> selectByCourierId(Integer id);
 }

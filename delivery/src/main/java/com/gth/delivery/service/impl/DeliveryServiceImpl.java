@@ -111,6 +111,11 @@ public class DeliveryServiceImpl implements DeliveryService {
 	public List<Indent> findIndentByToUserId(Integer id) {
 		return indentMapper.selectByToUserId(id);
 	}
+	
+	@Override
+	public List<Indent> findIndentByCourierId(Integer id) {
+		return indentMapper.selectByCourierId(id);
+	}
 
 	@Override
 	public Indent findIndentById(Integer id) {

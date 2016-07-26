@@ -199,5 +199,8 @@
   	select * from indent
   	where touserid=#{id}
   </select>
-  
+  <select id="selectByCourierId" resultType="java.util.List" resultMap="ResultMapWithBLOBs">
+  	select * from indent
+  	where courierid=#{id} and state=1
+  </select>
 </mapper>

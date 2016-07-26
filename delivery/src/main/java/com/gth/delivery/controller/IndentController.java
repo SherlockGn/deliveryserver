@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gth.delivery.model.Courier;
 import com.gth.delivery.model.Indent;
 import com.gth.delivery.model.User;
 import com.gth.delivery.service.DeliveryService;
@@ -164,5 +165,42 @@ public class IndentController {
 		if (indent == null)
 			return new Indent(-1, "indent doesn't exist");
 		return indent;
+	}
+
+	@RequestMapping(value = "/remainingIndent", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Indent> remainingIndent(HttpServletRequest request, Model model,
+			@RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "username", required = false) String username) {
+		
+		List<Indent> lstIndent = new ArrayList<Indent>();
+		if (StringUtils.isNull(id) && StringUtils.isNull(username)) {
+
+			lstIndent.add(new Indent(-1, "lack param id & username"));
+			return lstIndent;
+		}
+		if (!StringUtils.isNull(id) && !StringUtils.isNull(username)) {
+			lstIndent.add(new Indent(-1, "reduplicative param id & username"));
+			return lstIndent;
+		}
+		Courier courier;
+		if (!StringUtils.isNull(id)) {
+			if (!StringUtils.isNumber(id)) {
+				lstIndent.add(new Indent(-1, "id seems not a number"));
+				return lstIndent;
+			}
+			courier = deliveryService.findCourierById(Integer.parseInt(id));
+			if (courier == null) {
+				lstIndent.add(new Indent(-1, "the user doesn't exist"));
+				return lstIndent;
+			}
+		} else {
+			courier = deliveryService.findCourierByUsername(username);
+			if (courier == null) {
+				lstIndent.add(new Indent(-1, "the user doesn't exist"));
+				return lstIndent;
+			}
+		}
+		return deliveryService.findIndentByCourierId(courier.getId());
 	}
 }

@@ -37,6 +37,8 @@ public interface DeliveryService {
 	public List<Indent> findIndentByFromUserId(Integer id);
 
 	public List<Indent> findIndentByToUserId(Integer id);
+	
+	public List<Indent> findIndentByCourierId(Integer id);
 
 	public Indent findIndentById(Integer id);
 	
