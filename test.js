@@ -79,6 +79,12 @@ $(document).ready(function() {
 	
 	$("#submitButtonId").click(function() {
 		var stringBuffer = $("#interfaceChooseId").find("input[disabled='true']").val() + "?";
+		
+		$("#warningDivId").animate({opacity:1},800);
+		setTimeout(function() {
+			$("#warningDivId").animate({opacity:0},2000);
+		}, 5000);
+		
 		var first = true;
 		$("tbody").find("tr").each(function() {
 			if(!first) stringBuffer = stringBuffer + "&";
@@ -91,7 +97,7 @@ $(document).ready(function() {
 		});
 		
 		$("#urlCodeId").html(stringBuffer);
-		$("#resultId").html("haha~ Test");
+		$("#resultId").html("This execution can only be conducted when server is deployed. The static webpage on GitHub is only for showing the end front. Thank you for understanding.");
 	});
 	
 	$("#addButtonId").click();
