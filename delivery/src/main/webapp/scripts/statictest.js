@@ -13,7 +13,7 @@ function nextType(now) {
 }
 
 function trString(type) {
-	return '<tr class="'+type+'"> \
+	return '<tr style="display:none" class="'+type+'"> \
       <td> \
         <button type="button" class="btn btn-'+type+'">delete this row</button> \
        </td> \
@@ -34,46 +34,79 @@ function trString(type) {
        </td> \
      </tr>'
 }
+
 function liaString(content) {
 	return "<li><a>" + content + "</a></li>";
 }
 
 var lastType = "danger";
-var interfaces = ['interface1', 'interface2', 'interface3', 'interface4', 'interface5'];
-var keys = ['key1', 'key2', 'key3', 'key4', 'key5'];
-$(document).ready(function() {
+var clickArg;
+var data = {
+	getUser: ["id", "username"],
+	courierScan: ["courierid", "courierusername", "indentid"],
+	appendUser: ["id", "username", "phone", "address"],
+	getArgs: [],
+	registerUser: ["username", "password", "gender", "name", "phone", "address"],
+	getFriend: ["id", "username"],
+	getIndent: ["id"],
+	addFriend: ["id1", "username1", "id2", "username2"],
+	remainingIndent: ["id", "username"],
+	userScan: ["userid", "userusername", "indentid"],
+	registerCourier: ["username", "password", "name", "phone"],
+	getCourier: ["id", "username"],
+	getReceivedIndent: ["username", "id"],
+	rootTest: [],
+	createIndent: ["fromuserid", "touserid", "fromphone", "tophone", "fromaddress", "toaddress", "price"],
+	setUser: ["id", "username", "password", "name", "phone"],
+	getSendedIndent: ["username", "id"],
+	loginUser: ["username", "password"]
+};
+
+function initInterKeys() {
+//	$.ajax({
+//		type: "get",
+//		dataType: "json",
+//		url: "getArgs",
+//		success: function(data) {
+//			webpageInit(data);
+//		}
+//	});
+	webpageInit(data);
+}
+
+function webpageInit(data) {
 	
 	var interfaceUl = $("#interfaceChooseId").find("ul");
-	for(var i in interfaces) {
-		interfaceUl.append(liaString(interfaces[i]));
+	var firstKey = null;
+	for(var i in data) {
+		if(firstKey === null) firstKey = i;
+		interfaceUl.append(liaString(i));
 	}
-	$("#interfaceChooseId").find("input[disabled='true']").val(interfaces[0]);
-	interfaceUl.find("a").each(function() {
-		$(this).click(function() {
-			$("#interfaceChooseId").find("input[disabled='true']").val($(this).html());
-		});
-	});
+	
 	interfaceUl.find("a").hover(function(){$(this).css("cursor","pointer");}, function(){$(this).css("cursor","default");});
 	
 	$("#addButtonId").click(function() {
 		var thisType = nextType(lastType);
 		$("tbody").append(trString(thisType));
 		lastType = thisType;
-		
+
 		var appendedTr = $("tbody").children().get($("tbody").children().length-1);
 		var ul = $(appendedTr).find("ul");
-		for(var i in keys) {
-			ul.append(liaString(keys[i]));
+		var nowInterface = clickArg.now;
+		var cnt = clickArg.cnt;
+		for(var i in data[nowInterface]) {
+			ul.append(liaString(data[nowInterface][parseInt(i)]));
 		}
-		$(appendedTr).find("input[disabled='true']").val(keys[0]);
+		$(appendedTr).find("input[disabled='true']").val(data[nowInterface][cnt]);
 		ul.find("a").hover(function(){$(this).css("cursor","pointer");}, function(){$(this).css("cursor","default");});
 		ul.find("a").each(function() {
 			$(this).click(function() {
 				$(appendedTr).find("input[disabled='true']").val($(this).html());
 			});
 		});
+        $(appendedTr).fadeIn('slow');
 		$(appendedTr).find("button").not("[data-toggle='dropdown']").click(function() {
-			$(appendedTr).remove();
+			$(appendedTr).fadeOut('slow', function() { $(appendedTr).remove(); });  
 		});
 	});
 	
@@ -83,24 +116,62 @@ $(document).ready(function() {
 		$("#warningDivId").animate({opacity:1},800);
 		setTimeout(function() {
 			$("#warningDivId").animate({opacity:0},2000);
-		}, 5000);
+		}, 5000); 
 		
 		var first = true;
+		var args = new Array();
 		$("tbody").find("tr").each(function() {
-			if(!first) stringBuffer = stringBuffer + "&";
 			var thisTr = $(this);
 			var key = thisTr.find("input[disabled='true']").val();
 			var value = thisTr.find("input").not(":disabled").val();
-			value = encodeURIComponent(value);
+			if(value !== "") {
+				args[key] = value;
+			}
+		});
+		for(var key in args) {
+			if(!first) stringBuffer = stringBuffer + "&";
+			var value = encodeURIComponent(args[key]);
 			stringBuffer = stringBuffer + key + "=" + value;
 			first = false;
-		});
+		}
 		
 		$("#urlCodeId").html(stringBuffer);
 		$("#resultId").html("This execution can only be conducted when server is deployed. The static webpage on GitHub is only for showing the end front. Thank you for understanding.");
+//		sendAjax(stringBuffer);
 	});
 	
-	$("#addButtonId").click();
+	interfaceUl.find("a").each(function() {
+		$(this).click(function() {
+			var nowInterface = $(this).html();
+			$("#interfaceChooseId").find("input[disabled='true']").val(nowInterface);
+			$("tbody tr").remove();
+			for (var i = 0; i < data[nowInterface].length; i++) {
+				clickArg = {now: nowInterface, cnt: i};
+				$("#addButtonId").click();
+			}
+			clickArg = {now: nowInterface, cnt: 0};
+		});
+	});
+	
+	interfaceUl.find("li:first-child a").click();
+}
+
+function sendAjax(stringBuffer) {
+//	$.ajax({
+//		type: "get",
+//		dataType: "json",
+//		url: stringBuffer,
+//		success: function(data) {
+//			$("#resultId").html(JSON.stringify(data));
+//		},
+//		error: function(XMLHttpRequest, textStatus, errorThrown) {
+//			alert(XMLHttpRequest);
+//		}
+//	});
+}
+
+$(document).ready(function() {
+	initInterKeys();
 });
 
 

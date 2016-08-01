@@ -23,11 +23,6 @@ public class UserController {
 	@Autowired
 	private DeliveryService deliveryService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String rootTest(HttpServletRequest request, Model model) {
-		return "mainpage";
-	}
-
 	@RequestMapping(value = "/getUser", method = RequestMethod.GET)
 	@ResponseBody
 	public User getUser(HttpServletRequest request, Model model,

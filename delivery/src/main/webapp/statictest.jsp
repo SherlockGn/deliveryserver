@@ -5,10 +5,10 @@
   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" /> 
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> 
-  <script src="test.js"></script> 
+  <script src="scripts/statictest.js"></script> 
  </head> 
  <body> 
- <div id="warningDivId" style="opacity:0; text-align:center;" class="navbar-fixed-top alert alert-warning">This execution can only be conducted when server is deployed. The static webpage on GitHub is only for showing the end front. Thank you for understanding.</div>
+ <div id="warningDivId" style="opacity:0; text-align:center;" class="navbar-fixed-top alert alert-danger">This execution can only be conducted when server is deployed. The static webpage on GitHub is only for showing the end front. Thank you for understanding.</div>
   <div class="container" style="margin-top:30px; margin-left:auto; margin-right:auto; width:60%;"> 
    <div style="margin-left:auto; margin-right:auto; text-align:center"> 
     <h2>Test of delivery server</h2> 
