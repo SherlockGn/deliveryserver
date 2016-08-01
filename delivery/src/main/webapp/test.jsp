@@ -2,9 +2,9 @@
 <html>
  <head> 
   <title>Test of delivery server</title> 
-  <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" /> 
-  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
-  <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> 
+  <link href="scripts/bootstrap.min.css" rel="stylesheet" /> 
+  <script src="scripts/jquery.min.js"></script> 
+  <script src="scripts/bootstrap.min.js"></script> 
   <script src="scripts/test.js"></script> 
  </head> 
  <body> 

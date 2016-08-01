@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class FileMapGenerator {
 
@@ -18,7 +18,7 @@ public class FileMapGenerator {
 
 	public void generateMapText() throws Exception {
 
-		map = new HashMap<String, List<String>>();
+		map = new TreeMap<String, List<String>>();
 
 		for (String fileName : fileNames) {
 			File f = new File(rootPath + fileName);

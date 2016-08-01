@@ -42,24 +42,23 @@ function liaString(content) {
 var lastType = "danger";
 var clickArg;
 var data = {
-	getUser: ["id", "username"],
-	courierScan: ["courierid", "courierusername", "indentid"],
-	appendUser: ["id", "username", "phone", "address"],
-	getArgs: [],
-	registerUser: ["username", "password", "gender", "name", "phone", "address"],
-	getFriend: ["id", "username"],
-	getIndent: ["id"],
-	addFriend: ["id1", "username1", "id2", "username2"],
-	remainingIndent: ["id", "username"],
-	userScan: ["userid", "userusername", "indentid"],
-	registerCourier: ["username", "password", "name", "phone"],
-	getCourier: ["id", "username"],
-	getReceivedIndent: ["username", "id"],
-	rootTest: [],
-	createIndent: ["fromuserid", "touserid", "fromphone", "tophone", "fromaddress", "toaddress", "price"],
-	setUser: ["id", "username", "password", "name", "phone"],
-	getSendedIndent: ["username", "id"],
-	loginUser: ["username", "password"]
+		addFriend: ["id1", "username1", "id2", "username2"],
+		appendUser: ["id", "username", "phone", "address"],
+		courierScan: ["courierid", "courierusername", "indentid"],
+		createIndent: ["fromuserid", "touserid", "fromphone", "tophone", "fromaddress", "toaddress", "price"],
+		getArgs: [],
+		getCourier: ["id", "username"],
+		getFriend: ["id", "username"],
+		getIndent: ["id"],
+		getReceivedIndent: ["username", "id"],
+		getSendedIndent: ["username", "id"],
+		getUser: ["id", "username"],
+		loginUser: ["username", "password"],
+		registerCourier: ["username", "password", "name", "phone"],
+		registerUser: ["username", "password", "gender", "name", "phone", "address"],
+		remainingIndent: ["id", "username"],
+		setUser: ["id", "username", "password", "name", "phone"],
+		userScan: ["userid", "userusername", "indentid"]
 };
 
 function initInterKeys() {

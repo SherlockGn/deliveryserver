@@ -25,7 +25,7 @@ public class TestController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String rootTest(HttpServletRequest request, Model model) {
-		return "statictest";
+		return "test";
 	}
 	
 	@RequestMapping(value = "/getArgs", method = RequestMethod.GET)
