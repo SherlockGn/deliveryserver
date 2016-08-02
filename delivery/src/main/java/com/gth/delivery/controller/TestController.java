@@ -12,22 +12,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gth.delivery.model.Courier;
+import com.gth.delivery.model.Friend;
+import com.gth.delivery.model.Indent;
+import com.gth.delivery.model.User;
 import com.gth.delivery.service.DeliveryService;
+import com.gth.delivery.util.StringUtils;
 
 @Controller
 public class TestController {
-	
-	@SuppressWarnings("unused")
+
+	private final Integer page = 5;
+
 	@Autowired
 	private DeliveryService deliveryService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String rootTest(HttpServletRequest request, Model model) {
-		return "test";
+		return "usertable";
 	}
-	
+
 	@RequestMapping(value = "/getArgs", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, List<String>> getArgs(HttpServletRequest request, Model model) {
@@ -110,7 +117,95 @@ public class TestController {
 		map.get("userScan").add("userid");
 		map.get("userScan").add("userusername");
 		map.get("userScan").add("indentid");
+		map.put("rootTest", new ArrayList<String>());
 		map.put("getArgs", new ArrayList<String>());
+		map.put("getUserPage", new ArrayList<String>());
+		map.get("getUserPage").add("nowpage");
+		map.put("getCourierPage", new ArrayList<String>());
+		map.get("getCourierPage").add("nowpage");
+		map.put("getFriendPage", new ArrayList<String>());
+		map.get("getFriendPage").add("nowpage");
+		map.put("getIndentPage", new ArrayList<String>());
+		map.get("getIndentPage").add("nowpage");
+		map.put("getUserCount", new ArrayList<String>());
+		map.put("getCourierCount", new ArrayList<String>());
+		map.put("getFriendCount", new ArrayList<String>());
+		map.put("getIndentCount", new ArrayList<String>());
+		map.put("getPage", new ArrayList<String>());
 		return map;
+	}
+
+	@RequestMapping(value = "/getUserPage", method = RequestMethod.GET)
+	@ResponseBody
+	public List<User> getUserPage(HttpServletRequest request, Model model,
+			@RequestParam(value = "nowpage", required = false) String nowpage) {
+		if (StringUtils.isNull(nowpage) || !StringUtils.isNumber(nowpage)) {
+			nowpage = "1";
+		}
+		int thisPage = Integer.parseInt(nowpage);
+		return deliveryService.findUserPage((thisPage - 1) * page, page);
+	}
+
+	@RequestMapping(value = "/getCourierPage", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Courier> getCourierPage(HttpServletRequest request, Model model,
+			@RequestParam(value = "nowpage", required = false) String nowpage) {
+		if (StringUtils.isNull(nowpage) || !StringUtils.isNumber(nowpage)) {
+			nowpage = "1";
+		}
+		int thisPage = Integer.parseInt(nowpage);
+		return deliveryService.findCourierPage((thisPage - 1) * page, page);
+	}
+
+	@RequestMapping(value = "/getFriendPage", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Friend> getFriendPage(HttpServletRequest request, Model model,
+			@RequestParam(value = "nowpage", required = false) String nowpage) {
+		if (StringUtils.isNull(nowpage) || !StringUtils.isNumber(nowpage)) {
+			nowpage = "1";
+		}
+		int thisPage = Integer.parseInt(nowpage);
+		return deliveryService.findFriendPage((thisPage - 1) * page, page);
+	}
+
+	@RequestMapping(value = "/getIndentPage", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Indent> getIndentPage(HttpServletRequest request, Model model,
+			@RequestParam(value = "nowpage", required = false) String nowpage) {
+		if (StringUtils.isNull(nowpage) || !StringUtils.isNumber(nowpage)) {
+			nowpage = "1";
+		}
+		int thisPage = Integer.parseInt(nowpage);
+		return deliveryService.findIndentPage((thisPage - 1) * page, page);
+	}
+	
+	@RequestMapping(value = "/getUserCount", method = RequestMethod.GET)
+	@ResponseBody
+	public Integer getUserCount(HttpServletRequest request, Model model) {
+		return deliveryService.getUserNumber();
+	}
+	
+	@RequestMapping(value = "/getCourierCount", method = RequestMethod.GET)
+	@ResponseBody
+	public Integer getCourierCount(HttpServletRequest request, Model model) {
+		return deliveryService.getCourierNumber();
+	}
+	
+	@RequestMapping(value = "/getFriendCount", method = RequestMethod.GET)
+	@ResponseBody
+	public Integer getFriendCount(HttpServletRequest request, Model model) {
+		return deliveryService.getFriendNumber();
+	}
+	
+	@RequestMapping(value = "/getIndentCount", method = RequestMethod.GET)
+	@ResponseBody
+	public Integer getIndentCount(HttpServletRequest request, Model model) {
+		return deliveryService.getIndentNumber();
+	}
+	
+	@RequestMapping(value = "/getPage", method = RequestMethod.GET)
+	@ResponseBody
+	public Integer getPage(HttpServletRequest request, Model model) {
+		return page;
 	}
 }

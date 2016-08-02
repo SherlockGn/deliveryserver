@@ -127,4 +127,44 @@ public class DeliveryServiceImpl implements DeliveryService {
 		indentMapper.updateByPrimaryKeySelective(indent);
 	}
 
+	@Override
+	public List<User> findUserPage(Integer offset, Integer page) {
+		return userMapper.selectPage(offset, page);
+	}
+
+	@Override
+	public List<Courier> findCourierPage(Integer offset, Integer page) {
+		return courierMapper.selectPage(offset, page);
+	}
+
+	@Override
+	public List<Friend> findFriendPage(Integer offset, Integer page) {
+		return friendMapper.selectPage(offset, page);
+	}
+
+	@Override
+	public List<Indent> findIndentPage(Integer offset, Integer page) {
+		return indentMapper.selectPage(offset, page);
+	}
+
+	@Override
+	public Integer getUserNumber() {
+		return userMapper.selectCount();
+	}
+
+	@Override
+	public Integer getCourierNumber() {
+		return courierMapper.selectCount();
+	}
+
+	@Override
+	public Integer getFriendNumber() {
+		return friendMapper.selectCount();
+	}
+
+	@Override
+	public Integer getIndentNumber() {
+		return indentMapper.selectCount();
+	}
+
 }

@@ -37,10 +37,27 @@ public interface DeliveryService {
 	public List<Indent> findIndentByFromUserId(Integer id);
 
 	public List<Indent> findIndentByToUserId(Integer id);
-	
+
 	public List<Indent> findIndentByCourierId(Integer id);
 
 	public Indent findIndentById(Integer id);
-	
+
 	public void updateIndent(Indent indent);
+
+	// this is for test
+	public List<User> findUserPage(Integer offset, Integer page);
+
+	public List<Courier> findCourierPage(Integer offset, Integer page);
+
+	public List<Friend> findFriendPage(Integer offset, Integer page);
+
+	public List<Indent> findIndentPage(Integer offset, Integer page);
+
+	public Integer getUserNumber();
+
+	public Integer getCourierNumber();
+
+	public Integer getFriendNumber();
+
+	public Integer getIndentNumber();
 }

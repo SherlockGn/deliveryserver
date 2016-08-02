@@ -122,5 +122,12 @@
 	<select id="selectByUserName" resultType="java.util.List" resultMap="ResultMapWithBLOBs">
 		select * from courier where username=#{username}
 	</select>
+	
+	<select id="selectPage" resultType="java.util.List" resultMap="ResultMapWithBLOBs">
+		select * from courier limit #{offset}, #{page}
+	</select>
 
+	<select id="selectCount" resultType="java.lang.Integer" >
+		select count(*) from courier
+	</select>
 </mapper>

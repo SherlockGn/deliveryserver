@@ -79,4 +79,13 @@
 		where
 		id1=#{id} or id2=#{id}
 	</select>
+	
+	<select id="selectPage" resultType="java.util.List" resultMap="BaseResultMap">
+		select * from friend
+		limit #{offset}, #{page}
+	</select>
+	
+	<select id="selectCount" resultType="java.lang.Integer" >
+		select count(*) from friend
+	</select>
 </mapper>

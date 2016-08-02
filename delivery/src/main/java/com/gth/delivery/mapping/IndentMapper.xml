@@ -203,4 +203,13 @@
   	select * from indent
   	where courierid=#{id} and state=1
   </select>
+  
+  <select id="selectPage" resultType="java.util.List" resultMap="ResultMapWithBLOBs">
+  	select * from indent
+  	limit #{offset}, #{page}
+  </select>
+  
+  <select id="selectCount" resultType="java.lang.Integer" >
+		select count(*) from indent
+</select>
 </mapper>

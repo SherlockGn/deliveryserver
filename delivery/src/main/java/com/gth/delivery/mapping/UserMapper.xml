@@ -167,4 +167,14 @@
 			#{ids}
 		</foreach>
 	</select>
+	
+	<select id="selectPage" resultType="java.util.List"
+		resultMap="ResultMapWithBLOBs" >
+		select * from user
+		limit #{offset}, #{page}
+	</select>
+	
+	<select id="selectCount" resultType="java.lang.Integer" >
+		select count(*) from user
+	</select>
 </mapper>
