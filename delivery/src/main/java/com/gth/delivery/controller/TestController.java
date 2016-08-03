@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,14 +26,22 @@ import com.gth.delivery.util.StringUtils;
 @Controller
 public class TestController {
 
-	private final Integer page = 5;
+	private final Integer page = 10;
 
 	@Autowired
 	private DeliveryService deliveryService;
+	@Value("#{configProperties['driverClassName']}")
+	private String driverName;
+	@Value("#{configProperties['jdbc_url']}")
+	private String url;
+	@Value("#{configProperties['jdbc_username']}")
+	private String userName;
+	@Value("#{configProperties['jdbc_password']}")
+	private String password;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String rootTest(HttpServletRequest request, Model model) {
-		return "usertable";
+		return "test";
 	}
 
 	@RequestMapping(value = "/getArgs", method = RequestMethod.GET)
@@ -207,5 +216,11 @@ public class TestController {
 	@ResponseBody
 	public Integer getPage(HttpServletRequest request, Model model) {
 		return page;
+	}
+	
+	@RequestMapping(value = "/getDBConfig", method = RequestMethod.GET)
+	@ResponseBody
+	public String getDBConfig(HttpServletRequest request, Model model) {
+		return driverName + "|" + url + "|" + userName + "|" + password;
 	}
 }

@@ -1,5 +1,6 @@
 package com.gth.delivery.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,6 +57,8 @@ public class DeliveryServiceImpl implements DeliveryService {
 
 	@Override
 	public List<User> findUsersByIds(List<Integer> ids) {
+		if (ids.size() == 0)
+			return new ArrayList<User>();
 		return userMapper.selectByUserIds(ids);
 	}
 
@@ -111,7 +114,7 @@ public class DeliveryServiceImpl implements DeliveryService {
 	public List<Indent> findIndentByToUserId(Integer id) {
 		return indentMapper.selectByToUserId(id);
 	}
-	
+
 	@Override
 	public List<Indent> findIndentByCourierId(Integer id) {
 		return indentMapper.selectByCourierId(id);

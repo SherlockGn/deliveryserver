@@ -133,6 +133,11 @@ function webpageInit(data) {
 	});
 	
 	interfaceUl.find("li:first-child a").click();
+	
+	$("#labelLinkId").click(function() {window.open("interface.jsp", "_blank"); });
+    $("#labelLinkId").hover(function(){$(this).css("cursor","pointer");}, function(){$(this).css("cursor","default");});
+    $("#labelLinkId2").click(function() {window.open("usertable.jsp", "_blank"); });
+    $("#labelLinkId2").hover(function(){$(this).css("cursor","pointer");}, function(){$(this).css("cursor","default");});
 }
 
 function sendAjax(stringBuffer) {

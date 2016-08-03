@@ -3,7 +3,7 @@ var totalPage;
 $(document).ready(function() {
 
 	totalPage = parseInt($.ajax({
-		url : 'getUserCount',
+		url : 'getCourierCount',
 		async : false
 	}).responseText) / parseInt($.ajax({
 		url : 'getPage',
@@ -74,8 +74,7 @@ function getTableLine(number) {
 function userTrLineString(user) {
 	return '<tr style="display:none">' + '<td>' + user.id + '</td>' + '<td>'
 			+ user.username + '</td>' + '<td>' + user.password + '</td>'
-			+ '<td>' + user.gender + '</td>' + '<td>' + user.name + '</td>'
-			+ '<td>' + user.phone + '</td>' + '<td>' + user.address + '</td>'
+			+ '<td>' + user.name + '</td>' + '<td>' + user.phone + '</td>'
 			+ '<td>' + user.time + '</td>' + '</tr>'
 }
 
@@ -89,7 +88,7 @@ function show(i, length) {
 
 function refreshTables() {
 	$.ajax({
-		url : "getUserPage?nowpage=" + nowpage,
+		url : "getCourierPage?nowpage=" + nowpage,
 		dataType : "json",
 		success : function(users) {
 			$("tbody").children().remove();
@@ -110,8 +109,8 @@ function setToggle() {
 			at : "right top",
 			using : function(position, feedback) {
 				$(this).css(position);
-				$("<div>").addClass(feedback.vertical)
-						.addClass(feedback.horizontal).appendTo(this);
+				$("<div>").addClass(feedback.vertical).addClass(
+						feedback.horizontal).appendTo(this);
 			}
 		},
 		show : {

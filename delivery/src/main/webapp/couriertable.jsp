@@ -7,7 +7,7 @@
 <script src="scripts/jquery.min.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/jquery-ui.min.js"></script>
-<script src="scripts/usertable.js"></script>
+<script src="scripts/couriertable.js"></script>
 
 <style>
 .ui-tooltip {
@@ -27,8 +27,8 @@ font-family: Helvetica Neue;
 	<div class="container"
 		style="width: 80%:margin-left:auto; margin-right: auto; margin-top: 30px;">
 		<ul class="nav nav-tabs">
-			<li class="active"><a>User</a></li>
-			<li><a href="couriertable.jsp">Courier</a></li>
+			<li><a href="usertable.jsp">User</a></li>
+			<li class="active"><a>Courier</a></li>
 			<li><a href="friendtable.jsp">Friend</a></li>
 			<li><a href="indenttable.jsp">Indent</a></li>
 
@@ -46,7 +46,7 @@ font-family: Helvetica Neue;
 	</div>
 
 	<div class="container" style="width: 70%; margin-top: 40px;">
-		<div class="table-responsive" style="overflow-x: auto;">
+		<div class="table-responsive"  style="overflow-x: auto;">
 			<table class="table table-hover">
 				<caption style="text-align: center">
 					<h2>User Information Table</h2>
@@ -56,10 +56,8 @@ font-family: Helvetica Neue;
 						<th>id</th>
 						<th>username</th>
 						<th>password</th>
-						<th>gender</th>
 						<th>name</th>
 						<th>phone</th>
-						<th>address</th>
 						<th>time</th>
 					</tr>
 				</thead>

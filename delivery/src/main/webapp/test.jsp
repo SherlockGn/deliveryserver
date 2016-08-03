@@ -25,6 +25,8 @@
      <input type="text" disabled="true" class="form-control" /> 
     </div> 
    </div>
+   <span id="labelLinkId" style="margin-left:20px" class="label label-default">interfaces</span>
+   <span id="labelLinkId2" style="margin-left:10px" class="label label-default">database</span>
    <!-- end of interface choose -->
    <br />
    <hr />
