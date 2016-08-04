@@ -1,0 +1,48 @@
+database name: delivery
+
+create table user (
+id int primary key auto_increment,
+name text not null,
+username text not null,
+password text not null,
+gender tinyint(1) not null,
+phone text not null,
+address text not null,
+time date not null
+);
+
+create table friend (
+id1 int not null,
+foreign key (id1) references user (id),
+id2 int not null,
+foreign key (id2) references user (id),
+primary key (id1, id2),
+time date not null
+);
+
+create table courier (
+id int primary key auto_increment,
+name text not null,
+username text not null,
+password text not null,
+phone text not null,
+time date not null
+);
+
+create table indent (
+id int primary key auto_increment,
+fromuserid int not null,
+foreign key (fromuserid) references user (id),
+touserid int not null,
+foreign key (touserid) references user (id),
+fromphone text not null,
+tophone text not null,
+fromaddress text not null,
+toaddress text not null,
+price double,
+courierid int,
+foreign key (courierid) references user (id),
+state int not null,
+secretcode text not null,
+time date not null
+);

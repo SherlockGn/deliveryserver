@@ -49,7 +49,7 @@ font-family: Helvetica Neue;
 		<div class="table-responsive"  style="overflow-x: auto;">
 			<table class="table table-hover">
 				<caption style="text-align: center">
-					<h2>User Information Table</h2>
+					<h2>Indent Information Table</h2>
 				</caption>
 				<thead>
 					<tr class="info">

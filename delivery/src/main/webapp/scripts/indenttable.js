@@ -72,14 +72,14 @@ function getTableLine(number) {
 }
 
 function userTrLineString(user) {
-	return '<tr style="display:none">' + '<td>' + user.id + '</td>' + '<td>'
-			+ user.fromuserid + '</td>' + '<td>' + user.touserid + '</td>'
-			+ '<td>' + user.fromphone + '</td>' + '<td>' + user.tophone
-			+ '</td>' + '<td>' + user.fromaddress + '</td>' + '<td>'
-			+ user.toaddress + '</td>' + '<td>' + user.price + '</td>' + '<td>'
-			+ user.courierid + '</td>' + '<td>' + user.state + '</td>' + '<td>'
-			+ user.secretcode + '</td>' + '<td>' + user.time + '</td>'
-			+ '</tr>'
+	return '<tr style="display:none">' + '<td>' + user.id + '</td>' + '<td><a>'
+			+ user.fromuserid + '</a></td>' + '<td><a>' + user.touserid
+			+ '</a></td>' + '<td>' + user.fromphone + '</td>' + '<td>'
+			+ user.tophone + '</td>' + '<td>' + user.fromaddress + '</td>'
+			+ '<td>' + user.toaddress + '</td>' + '<td>' + user.price + '</td>'
+			+ '<td><a title="null">' + user.courierid + '</a></td>' + '<td>'
+			+ user.state + '</td>' + '<td>' + user.secretcode + '</td>'
+			+ '<td>' + user.time + '</td>' + '</tr>'
 }
 
 function show(i, length) {
@@ -100,17 +100,55 @@ function refreshTables() {
 				$("tbody").append(userTrLineString(users[i]));
 			}
 			$("tbody").children().show('slow');
-			// show(0, users.length);
+			tableToggle();
 		}
 	});
 }
 
-function setToggle() {
-	var links = $(".dropdown-menu a");
-	var tooltipOption = {
+function tableToggle() {
+	var links = $("tbody").find("a");
+	links.each(function() {
+		var thisLink = $(this);
+		var url = thisLink.attr("title") === "null" ? "getCourier" : "getUser";
+		if (thisLink.html() !== "null")
+			$.ajax({
+				url : url + "?id=" + $(this).html(),
+				dataType : "json",
+				success : function(user) {
+					thisLink.attr("title", "");
+					thisLink.tooltip(getToolTipOption(userToggleString(user)));
+				}
+			});
+		thisLink.hover(function() {
+			thisLink.css("cursor", "pointer");
+		}, function() {
+			thisLink.css("cursor", "default");
+		});
+	});
+}
+
+var tooltipOption = {
+	position : {
+		my : "left top",
+		at : "right top",
+		using : function(position, feedback) {
+			$(this).css(position);
+			$("<div>").addClass(feedback.vertical)
+					.addClass(feedback.horizontal).appendTo(this);
+		}
+	},
+	show : {
+		effect : "slideDown",
+		delay : 250
+	}
+};
+
+function getToolTipOption(content) {
+	return {
+		content : content,
 		position : {
 			my : "left top",
-			at : "right top",
+			at : "right+20 top",
 			using : function(position, feedback) {
 				$(this).css(position);
 				$("<div>").addClass(feedback.vertical).addClass(
@@ -122,6 +160,16 @@ function setToggle() {
 			delay : 250
 		}
 	};
+}
+
+function userToggleString(user) {
+	return "username: " + user.username + "<br>" + "name: " + user.name
+			+ "<br>" + "phone: " + user.phone;
+}
+
+function setToggle() {
+	var links = $(".dropdown-menu a");
+
 	$.ajax({
 		url : "getDBConfig",
 		dataType : "json",

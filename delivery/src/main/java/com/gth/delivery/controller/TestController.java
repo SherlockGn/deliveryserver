@@ -187,37 +187,37 @@ public class TestController {
 		int thisPage = Integer.parseInt(nowpage);
 		return deliveryService.findIndentPage((thisPage - 1) * page, page);
 	}
-	
+
 	@RequestMapping(value = "/getUserCount", method = RequestMethod.GET)
 	@ResponseBody
 	public Integer getUserCount(HttpServletRequest request, Model model) {
 		return deliveryService.getUserNumber();
 	}
-	
+
 	@RequestMapping(value = "/getCourierCount", method = RequestMethod.GET)
 	@ResponseBody
 	public Integer getCourierCount(HttpServletRequest request, Model model) {
 		return deliveryService.getCourierNumber();
 	}
-	
+
 	@RequestMapping(value = "/getFriendCount", method = RequestMethod.GET)
 	@ResponseBody
 	public Integer getFriendCount(HttpServletRequest request, Model model) {
 		return deliveryService.getFriendNumber();
 	}
-	
+
 	@RequestMapping(value = "/getIndentCount", method = RequestMethod.GET)
 	@ResponseBody
 	public Integer getIndentCount(HttpServletRequest request, Model model) {
 		return deliveryService.getIndentNumber();
 	}
-	
+
 	@RequestMapping(value = "/getPage", method = RequestMethod.GET)
 	@ResponseBody
 	public Integer getPage(HttpServletRequest request, Model model) {
 		return page;
 	}
-	
+
 	@RequestMapping(value = "/getDBConfig", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDBConfig(HttpServletRequest request, Model model) {
