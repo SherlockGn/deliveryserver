@@ -62,7 +62,7 @@ public class ScanController {
 			ex.printStackTrace();
 			return new ReturnPackage(-1, ex.getMessage());
 		}
-		return new ReturnPackage(-1, "courier scan success");
+		return new ReturnPackage(1, "courier scan success");
 	}
 
 	@RequestMapping(value = "/userScan", method = RequestMethod.GET)
@@ -108,6 +108,6 @@ public class ScanController {
 			ex.printStackTrace();
 			return new ReturnPackage(-1, ex.getMessage());
 		}
-		return new ReturnPackage(-1, "user scan success");
+		return new ReturnPackage(1, "user scan success");
 	}
 }
