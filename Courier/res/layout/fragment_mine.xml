@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/titlebar_bg">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:text="我的"/>
+    </RelativeLayout>
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical">
+		    <View android:layout_width="fill_parent"
+		        android:layout_height="10dp"
+		        android:background="@color/light_gray"/>
+		    <LinearLayout 
+		        android:id="@+id/ll_mine"
+		        android:layout_width="fill_parent"
+		        android:layout_height="40dp"
+		        android:orientation="horizontal">
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="fill_parent"
+		            android:layout_marginLeft="10dp"
+		            android:gravity="center_vertical"
+		            android:text="用户："
+		            android:textSize="17sp"
+		            android:textColor="@color/color_black"/>
+		        <TextView android:id="@+id/tv_mine"
+		            android:layout_width="wrap_content"
+		            android:layout_height="fill_parent"
+		            android:layout_marginLeft="2dp"
+		            android:gravity="center_vertical"
+		            android:textColor="@color/color_black"
+		            android:singleLine="true"/>
+		    </LinearLayout>
+		    <View android:layout_width="fill_parent"
+		        android:layout_height="10dp"
+		        android:background="@color/light_gray"/>
+		    <LinearLayout 
+		        android:id="@+id/ll_scan"
+		        android:layout_width="fill_parent"
+		        android:layout_height="40dp"
+		        android:orientation="horizontal">
+		        <ImageView android:layout_width="36dp"
+		            android:layout_height="36dp"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginTop="2dp"
+		            android:scaleType="fitXY"
+		            android:background="@drawable/scan"/>
+				<TextView 
+		            android:layout_width="wrap_content"
+		            android:layout_height="fill_parent"
+		            android:singleLine="true"
+		            android:layout_marginLeft="10dp"
+		            android:gravity="center_vertical"
+		            android:textSize="17sp"
+		            android:text="扫码签收"
+		            android:textColor="@color/color_black"/>
+		    </LinearLayout>
+		    <View android:layout_width="fill_parent"
+		        android:layout_height="10dp"
+		        android:background="@color/light_gray"/>
+			 <LinearLayout android:id="@+id/ll_quit"
+		        android:layout_width="fill_parent"
+		        android:layout_height="40dp"
+		        android:orientation="horizontal">
+				<TextView 
+		            android:layout_width="wrap_content"
+		            android:layout_height="fill_parent"
+		            android:singleLine="true"
+		            android:layout_marginLeft="10dp"
+		            android:gravity="center_vertical"
+		            android:textSize="17sp"
+		            android:textColor="@color/color_black"
+		            android:text="退出"/>
+		    </LinearLayout>
+		    <View android:layout_width="fill_parent"
+		        android:layout_height="10dp"
+		        android:background="@color/light_gray"/>
+	    </LinearLayout>
+    </ScrollView>
+    <Button 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+</LinearLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+	<RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/titlebar_bg">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:text="个人信息"/>
+    </RelativeLayout>
+    
+	<ScrollView 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:scrollbars="vertical"
+		android:fadingEdge="vertical">
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+		    <!-- 姓名、账号、性别 -->
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dp"
+		        android:background="@color/color_white"
+		        android:orientation="vertical">
+		        <RelativeLayout 
+		            android:layout_width="fill_parent"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginRight="5dp"
+		            android:layout_height="48dp">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:gravity="center_vertical"
+		                android:text="姓名"/>
+		            <TextView 
+		                android:id="@+id/tv_cur_name"
+		                android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:layout_alignParentRight="true"
+		                android:gravity="center_vertical"
+		                android:text="宫天河"/>
+		        </RelativeLayout>
+				<View android:layout_width="fill_parent"
+			        android:layout_height="1dp"
+			        android:layout_marginLeft="10dp"
+			        android:background="@color/light_gray"/>
+				 <RelativeLayout 
+		            android:layout_width="fill_parent"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginRight="5dp"
+		            android:layout_height="48dp">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:gravity="center_vertical"
+		                android:text="账号"/>
+		            <TextView 
+		                android:id="@+id/tv_cur_login"
+		                android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:layout_alignParentRight="true"
+		                android:gravity="center_vertical"
+		                android:text="宫天河"/>
+		        </RelativeLayout>
+		    </LinearLayout>
+
+		    <!-- 电话、地址 -->
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dp"
+		        android:background="@color/color_white"
+		        android:orientation="vertical">
+		         <LinearLayout 
+		            android:id="@+id/ll_cur_login_gender"
+		            android:layout_width="fill_parent"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginRight="5dp"
+		            android:layout_height="48dp"
+		            android:orientation="horizontal">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:gravity="center_vertical"
+		                android:text="性别"/>
+		            <TextView 
+		                android:id="@+id/tv_cur_gender"
+		                android:layout_width="fill_parent"
+		                android:layout_height="fill_parent"
+		                android:gravity="center_vertical|right"
+		                android:text="男"/>
+		        </LinearLayout>
+				<View android:layout_width="fill_parent"
+			        android:layout_height="1dp"
+			        android:layout_marginLeft="10dp"
+			        android:background="@color/light_gray"/>
+				<LinearLayout 
+				    android:id="@+id/ll_cur_user_phone"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginRight="5dp"
+		            android:orientation="horizontal">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:layout_centerVertical="true"
+		                android:gravity="center_vertical"
+		                android:text="电话"/>
+		            <LinearLayout 
+		                android:id="@+id/ll_user_phone"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:layout_marginLeft="10dp"
+		                android:orientation="vertical">
+			            <TextView 
+			                android:id="@+id/tv_cur_phone"
+			                android:layout_width="fill_parent"
+			                android:layout_height="48dp"
+			                android:gravity="right|center_vertical"/>
+		            </LinearLayout>
+		        </LinearLayout>
+				<View android:layout_width="fill_parent"
+			        android:layout_height="1dp"
+			        android:layout_marginLeft="10dp"
+			        android:background="@color/light_gray"/>
+				<LinearLayout 
+				    android:id="@+id/ll_cur_user_address"
+		            android:layout_width="fill_parent"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginRight="5dp"
+		            android:layout_height="wrap_content">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:layout_centerVertical="true"
+		                android:gravity="center_vertical"
+		                android:text="地址"/>
+		            <LinearLayout 
+		                android:id="@+id/ll_user_address"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:layout_marginLeft="10dp"
+		                android:orientation="vertical">
+			            <TextView 
+			                android:id="@+id/tv_cur_address"
+			                android:layout_width="fill_parent"
+			                android:layout_height="48dp"
+			                android:gravity="right|center_vertical"/>
+		            </LinearLayout>
+		        </LinearLayout>
+				
+		    </LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>

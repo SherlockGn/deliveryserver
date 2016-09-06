@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Courier</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_title_bg">app标题背景</string>
+    <string name="Intelligent_courier">智慧快递</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="url">http://10.128.23.43:8080/delivery/</string>
+    <string name="title_activity_change_phone">ChangePhoneActivity</string>
+    <string name="title_activity_change_address">ChangeAddressActivity</string>
+
+</resources>

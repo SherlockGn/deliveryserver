@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+	    <TextView 
+	        android:layout_width="fill_parent"
+	        android:layout_height="48dp"
+	        android:layout_marginBottom="1dp"
+	        android:gravity="center"
+	        android:textSize="20sp"
+	        android:text="寄快递"
+	        android:background="@drawable/titlebar_bg"/>
+		<View android:layout_width="fill_parent"
+	        android:layout_height="1dp"
+	        android:background="@drawable/titlebar_bg_up"/>
+	    <!-- 寄件人 -->
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_margin="10dp"
+	            android:text="寄件人"
+	            android:ems="1"
+	            android:gravity="center"/>
+			<View android:layout_width="1dp"
+		        android:layout_height="fill_parent"
+		        android:background="@drawable/titlebar_bg_up"/>
+	        <LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:layout_marginLeft="10dp">
+	            <LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="5dp"
+	                android:orientation="horizontal">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="姓名："/>
+		            <TextView android:id="@+id/from_username"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/color_black"
+		                android:lines="1"/>
+	            </LinearLayout>
+	            <LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal">
+					<TextView android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="电话："/>
+		            <EditText android:id="@+id/from_user_phone"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:inputType="phone"
+		                android:focusable="false"
+	                	android:lines="1"/>
+	            </LinearLayout>
+	            <LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="10dp"
+	                android:orientation="horizontal">
+					<TextView android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="地址："/>
+		            <EditText android:id="@+id/from_user_address"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:focusable="false"
+		                android:maxLines="2"
+		                android:scrollbars="vertical"/>
+	            </LinearLayout>
+	        </LinearLayout>
+	    </LinearLayout>
+	    <View android:layout_width="fill_parent"
+	        android:layout_height="1dp"
+	        android:background="@drawable/titlebar_bg_up"/>
+	    <!-- 收件人 -->
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+			<TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_margin="10dp"
+	            android:text="收件人"
+	            android:ems="1"
+	            android:gravity="center"/>
+			<View android:layout_width="1dp"
+		        android:layout_height="fill_parent"
+		        android:background="@drawable/titlebar_bg_up"/>
+			<LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:paddingLeft="5dp"
+	            android:orientation="vertical"
+	            android:layout_marginLeft="10dp">
+				<LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="5dp"
+	                android:orientation="horizontal">
+		            <TextView android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="姓名："/>
+		            <TextView android:id="@+id/to_username"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/color_black"
+		                android:lines="1"/>
+				</LinearLayout>
+				<LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal">
+					<TextView android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="电话："/>
+		            <EditText android:id="@+id/to_user_phone"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:inputType="phone"
+		                android:focusable="false"
+		                android:lines="1"/>
+				</LinearLayout>    
+				<LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="10dp"
+	                android:orientation="horizontal">
+					<TextView android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="地址："/>
+		            <EditText android:id="@+id/to_user_address"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:maxLines="2"
+		                android:focusable="false"
+		                android:scrollbars="vertical"/>
+				</LinearLayout>        
+	        </LinearLayout>
+	    </LinearLayout>
+	    <View android:layout_width="fill_parent"
+	        android:layout_height="1dp"
+	        android:background="@drawable/titlebar_bg_up"/>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btn_create_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:text="确定"/>
+        <Button android:id="@+id/btn_create_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:text="取消"/>
+    </LinearLayout>
+</RelativeLayout>

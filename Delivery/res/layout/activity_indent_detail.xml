@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView android:layout_width="fill_parent"
+	    android:layout_height="48dp"
+	    android:layout_marginBottom="5dp"
+	    android:gravity="center"
+	    android:textSize="20sp"
+	    android:text="订单详情"
+	    android:background="@drawable/titlebar_bg"/>
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:scrollbars="vertical">
+		    <TextView 
+		        android:id="@+id/tv_indent_id"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:text="订单号："
+		        android:textSize="17sp"/>
+		    <View android:layout_width="fill_parent"
+			        android:layout_height="1dp"
+			        android:background="@drawable/titlebar_bg_up"/>
+			    <!-- 寄件人 -->
+			    <LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal">
+			        <TextView 
+			            android:layout_width="wrap_content"
+			            android:layout_height="fill_parent"
+			            android:layout_margin="10dp"
+			            android:text="寄件人"
+			            android:ems="1"
+			            android:gravity="center"/>
+					<View android:layout_width="1dp"
+				        android:layout_height="fill_parent"
+				        android:background="@drawable/titlebar_bg_up"/>
+			        <LinearLayout 
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+			            android:orientation="vertical"
+			            android:layout_marginLeft="10dp">
+			            <LinearLayout 
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_marginTop="5dp"
+			                android:orientation="horizontal">
+				            <TextView android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="姓名："/>
+				            <TextView android:id="@+id/tv_from_username"
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"
+				                android:textColor="@color/color_black"
+				                android:lines="1"/>
+			            </LinearLayout>
+			            <LinearLayout 
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:orientation="horizontal">
+							<TextView android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="电话："/>
+				            <TextView android:id="@+id/tv_from_user_phone"
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"/>
+			            </LinearLayout>
+			            <LinearLayout 
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_marginBottom="10dp"
+			                android:orientation="horizontal">
+							<TextView android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="地址："/>
+				            <TextView android:id="@+id/tv_from_user_address"
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"/>
+			            </LinearLayout>
+			        </LinearLayout>
+			    </LinearLayout>
+			    <View android:layout_width="fill_parent"
+			        android:layout_height="1dp"
+			        android:background="@drawable/titlebar_bg_up"/>
+			    <!-- 收件人 -->
+			    <LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal">
+					<TextView 
+			            android:layout_width="wrap_content"
+			            android:layout_height="fill_parent"
+			            android:layout_margin="10dp"
+			            android:text="收件人"
+			            android:ems="1"
+			            android:gravity="center"/>
+					<View android:layout_width="1dp"
+				        android:layout_height="fill_parent"
+				        android:background="@drawable/titlebar_bg_up"/>
+					<LinearLayout 
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+			            android:paddingLeft="5dp"
+			            android:orientation="vertical"
+			            android:layout_marginLeft="10dp">
+						<LinearLayout 
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_marginTop="5dp"
+			                android:orientation="horizontal">
+				            <TextView android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="姓名："/>
+				            <TextView android:id="@+id/tv_to_username"
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"
+				                android:textColor="@color/color_black"
+				                android:lines="1"/>
+						</LinearLayout>
+						<LinearLayout 
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:orientation="horizontal">
+							<TextView android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="电话："/>
+				            <TextView android:id="@+id/tv_to_user_phone"
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"/>
+						</LinearLayout>    
+						<LinearLayout 
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_marginBottom="10dp"
+			                android:orientation="horizontal">
+							<TextView android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="地址："/>
+				            <TextView android:id="@+id/tv_to_user_address"
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"/>
+						</LinearLayout>        
+			        </LinearLayout>
+			    </LinearLayout>
+			    <View android:layout_width="fill_parent"
+			        android:layout_height="1dp"
+			        android:background="@drawable/titlebar_bg_up"/>
+			    <!-- 快递员 -->
+				<LinearLayout 
+				    android:id="@+id/ll_courier"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical">
+				    <LinearLayout 
+				        android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+				        android:orientation="horizontal">
+						<TextView 
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:layout_margin="10dp"
+				            android:text="快递员"
+				            android:ems="1"
+				            android:gravity="center"/>
+						<View android:layout_width="1dp"
+					        android:layout_height="fill_parent"
+					        android:background="@drawable/titlebar_bg_up"/>
+						<LinearLayout 
+				            android:layout_width="fill_parent"
+				            android:layout_height="wrap_content"
+				            android:paddingLeft="5dp"
+				            android:orientation="vertical"
+				            android:layout_marginLeft="10dp"
+				            android:layout_gravity="center_vertical">
+							<LinearLayout 
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"
+				                android:orientation="horizontal">
+								<TextView android:layout_width="wrap_content"
+					                android:layout_height="wrap_content"
+					                android:text="姓名："/>
+					            <TextView android:id="@+id/tv_courier_name"
+					                android:layout_width="fill_parent"
+					                android:layout_height="wrap_content"/>
+							</LinearLayout>    
+							<LinearLayout 
+				                android:layout_width="fill_parent"
+				                android:layout_height="wrap_content"
+				                android:layout_marginTop="10dp"
+				                android:orientation="horizontal">
+								<TextView android:layout_width="wrap_content"
+					                android:layout_height="wrap_content"
+					                android:text="电话："/>
+					            <TextView android:id="@+id/tv_courier_phone"
+					                android:layout_width="fill_parent"
+					                android:layout_height="wrap_content"/>
+							</LinearLayout>        
+				        </LinearLayout>
+				    </LinearLayout>    
+				<View android:layout_width="fill_parent"
+					android:layout_height="1dp"
+				    android:background="@drawable/titlebar_bg_up"/>  
+			</LinearLayout>
+			<!-- 价格 -->
+			<LinearLayout 
+			    android:id="@+id/ll_price"
+				android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+			    android:orientation="vertical">
+			    
+			    <LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal">
+					<TextView 
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_margin="10dp"
+			            android:text="价格"
+			            android:ems="1"
+			            android:gravity="center"/>
+					<View android:layout_width="1dp"
+				        android:layout_height="fill_parent"
+				        android:background="@drawable/titlebar_bg_up"/>
+			        <TextView android:id="@+id/tv_price"
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+			           	android:layout_marginLeft="10dp"
+			            android:layout_gravity="center_vertical"
+			            android:text=""/>
+			    </LinearLayout>    
+				<View android:layout_width="fill_parent"
+					android:layout_height="1dp"
+				    android:background="@drawable/titlebar_bg_up"/>   
+			</LinearLayout>
+			<!-- 状态 -->
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+				<TextView 
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_margin="10dp"
+		            android:text="状态"
+		            android:ems="1"
+		            android:gravity="center"/>
+				<View android:layout_width="1dp"
+			        android:layout_height="fill_parent"
+			        android:background="@drawable/titlebar_bg_up"/>
+		        <TextView android:id="@+id/tv_indent_state"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		           	android:layout_marginLeft="10dp"
+		            android:layout_gravity="center_vertical"
+		            android:text=""/>
+		    </LinearLayout>    
+			<View android:layout_width="fill_parent"
+				android:layout_height="1dp"
+			    android:background="@drawable/titlebar_bg_up"/>   
+	    </LinearLayout>
+    </ScrollView>
+	 
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="trans">#00000000</color>
+    <color name="mainBg">#DEE3DEFF</color>
+    <color name="viewBillBg">#95C2E9</color>
+    <color name="view_title">#000000</color>
+    <color name="view_value">#2971DE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#008000</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#0000FF</color>  
+    
+    <color name="common_top_bar_blue">#22292c</color>
+    
+    <color name="text_color_category_brown">#FFAA2C</color>
+    <color name="color_dark_grey">#808080</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+	<color name="color_dimgray">#696969</color>
+	<color name = "light_gray">#D6D6D6</color>
+</resources>

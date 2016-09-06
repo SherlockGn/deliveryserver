@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="indent_groups">
+        <item >用户发过的订单</item>
+        <item >用户接收的订单</item>
+    </string-array>
+    
+</resources>

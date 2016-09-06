@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    tools:context="${relativePackage}.${activityClass}" >
+    <RelativeLayout 
+        android:id="@+id/changeAddressTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/titlebar_bg">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:text="管理地址"/>
+        <TextView 
+            android:id="@+id/tv_saveAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:text="保存"/>
+    </RelativeLayout>
+     <ScrollView 
+		android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/changeAddressTitle"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+        <LinearLayout 
+            android:id="@+id/ll_AddressList"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical">
+        </LinearLayout>
+	</ScrollView>
+
+     <Button android:id="@+id/btn_add_newAddress" 
+         android:layout_width="fill_parent"
+         android:layout_height="48dp"
+         android:layout_alignParentBottom="true"
+         android:background="@drawable/titlebar_bg"
+         android:text="添加新地址"
+         android:textColor="@color/color_white"
+         android:textSize="20sp"/>
+</RelativeLayout>
