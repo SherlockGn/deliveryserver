@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap</title>
+<title>courier table</title>
 <link href="scripts/bootstrap.min.css" rel="stylesheet">
 <link href="scripts/jquery-ui.min.css" rel="stylesheet">
 <script src="scripts/jquery.min.js"></script>

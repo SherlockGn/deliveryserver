@@ -62,7 +62,7 @@ public class ScanController {
 			ex.printStackTrace();
 			return new ReturnPackage(-1, ex.getMessage());
 		}
-		return new ReturnPackage(1, "courier scan success: " + deliveryService.findUserById(indent.getTouserid()));
+		return new ReturnPackage(1, "courier scan success: " + indent.getTophone());
 	}
 
 	@RequestMapping(value = "/userScan", method = RequestMethod.GET)
